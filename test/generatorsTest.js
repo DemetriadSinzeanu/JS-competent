@@ -1,24 +1,28 @@
 const should = require('chai').should();
-const { firstCartoon, secondCartoon, thirdCartoon, showCartoonByGenre } = require('../jsConcepts/this');
+const { 
+    generateFirstDragon,
+    generateSecondDragon,
+    generateThirdDragon,
+    generateAnotherDragon 
+} = require('../jsConcepts/generators');
 
-describe('This', function(){
-    it('firstCartoon, secondCartoon and thirdCartoon should be objects', function(){
-        firstCartoon.should.be.a('object')
-        secondCartoon.should.be.a('object')
-        thirdCartoon.should.be.a('object')
+describe('Generators', function(){
+    it('generateFirstDragon,generateSecondDragon,generateThirdDragon and generateAnotherDragon  should be objects', function(){
+        generateFirstDragon.should.be.a('object')
+        generateSecondDragon.should.be.a('object')
+        generateThirdDragon.should.be.a('object')
+        generateAnotherDragon.should.be.a('object')
     })
-    it('firstCartoon should return an object with title, year and seasons', function(){
-        firstCartoon.should.deep.equal({ title: 'Adventure time', year: 2010, seasons: 10 })
+    it('generateFirstDragon should return an object', function(){
+        generateFirstDragon.should.deep.equal({ value: 'fluffozaur', done: false })
     })
-    it('secondCartoon should return an object with title, year and seasons', function(){
-        secondCartoon.should.be.a('object')
-        secondCartoon.should.deep.equal({ title: 'Phineas and Ferb', year: 2007, seasons: 4 })
+    it('generateSecondDragon should return an object', function(){
+        generateSecondDragon.should.deep.equal({ value: 'purpleHaze', done: false })
     })
-    it('thirdCartoon should return an object with title, year and seasons', function(){
-        thirdCartoon.should.be.a('object')
-        thirdCartoon.should.deep.equal({ title: 'Gravity Falls', year: 2012, seasons: 2 })
+    it('generateThirdDragon should return an object', function(){
+        generateThirdDragon.should.deep.equal({ value: 'drakari!', done: false })
     })
-    it('showCartoonByGenre should return Naruto', function(){
-        showCartoonByGenre().should.deep.equal('Naruto')
+    it('generateAnotherDragon should return an object', function(){
+        generateAnotherDragon.should.deep.equal({ value: undefined, done: true })
     })
 })
