@@ -1,0 +1,36 @@
+<!--Web workers is an asynchronous system, or protocol, for web pages to execute tasks in the background, 
+    independently from the main thread and website UI. It is an isolated environment that is insulated from 
+    the window object, the document object, direct internet access and is best suited for long-running or demanding computational tasks.
+-->
+<!--Internet Explorer 9 and earlier versions do not support Web Workers.-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Count numbers: <output id="result"></output></p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+
+    <script>
+      var w;
+      function startWorker() {
+      if (typeof(Worker) !== "undefined") {
+        if (typeof(w) == "undefined") {
+          w = new Worker('worker.js');
+        }
+          w.onmessage = function(event) {
+          document.getElementById("result").innerHTML = event.data;
+        };
+        } else {
+          document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+        }
+      }
+
+      function stopWorker() {
+        w.terminate();
+        w = undefined;
+      }
+    </script>
+
+  </body>
+</html>
