@@ -3,21 +3,27 @@
 
 
 /** Functions are added to a Queue, a list of messages that are to be processed when the time comes.*/ 
+
 const eventLoopResult = () => {
+   const data = {
+      current: ''
+   }
   function a() {
-    console.log("This is function a")
+    data.current += "This is function a, "
  }
  function b() {
     setTimeout(function () {
-      console.log('this is function b')
+      data.current += "This is function b."
     }, 1000)
     a()
  }
  function c() {
-    console.log("This is function c")
+    data.current += "This is function c, "
     b()
  }
  c()
+
+ return data
 }
 const eventLoop = eventLoopResult()
 /** The execution should be, func c, func a, timeout(undefined) and func b*/
