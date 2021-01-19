@@ -7,7 +7,7 @@
 let concurencyPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('success')
-    }, 5000)
+    }, 500)
   })
   
   concurencyPromise.then(value => {
